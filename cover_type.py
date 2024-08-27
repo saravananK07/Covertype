@@ -4,8 +4,8 @@ from tensorflow.keras.models import load_model
 import pickle
 
 # Load the trained model
-model_path = r'"C:\Users\HP\Downloads\Covertype DNN\dnn_regression_model.h5"'
-scaler_path = r'"C:\Users\HP\Downloads\Covertype DNN\scaler.pkl"'
+model_path = r"C:\Users\HP\Downloads\Covertype DNN\dnn_regression_model.h5"
+scaler_path = r"C:\Users\HP\Downloads\Covertype DNN\scaler.pkl"
 
 # Load the model and scaler
 try:
