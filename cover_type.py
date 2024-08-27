@@ -13,6 +13,7 @@ st.title("Forest Cover Type Prediction")
 
 st.header("Input Features")
 
+#Ensure all features are included
 
 elevation = st.number_input("Elevation", value=3000)
 wilderness_area4 = st.number_input("Wilderness Area 4", value=0)  # Adjusted to be binary (0 or 1)
@@ -26,7 +27,9 @@ input_data = np.array([[elevation, wilderness_area4, horizontal_distance_to_road
  
 input_data_scaled = scaler.transform(input_data)  
 
-
+st.write("Input data shape:", input_data.shape)
+st.write("Scaler expects features:", scaler.n_features_in_)
+ # 
 if st.button("Predict"):
     prediction_probs = model.predict(input_data_scaled)
     predicted_class = np.argmax(prediction_probs, axis=1)
