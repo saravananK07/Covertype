@@ -2,10 +2,11 @@ import streamlit as st
 import numpy as np
 from tensorflow.keras.models import load_model
 import pickle
+import os
 
-# Load the trained model
-model_path = r"C:\Users\HP\Downloads\Covertype DNN\dnn_regression_model.h5"
-scaler_path = r"C:\Users\HP\Downloads\Covertype DNN\scaler.pkl"
+# Load the trained model and scaler
+model_path = "dnn_regression_model.h5"
+scaler_path = "scaler.pkl"
 
 # Load the model and scaler
 try:
@@ -43,7 +44,7 @@ input_data_scaled = scaler.transform(input_data)
 # Predict and display the result
 if st.button("Predict"):
     prediction_probs = model.predict(input_data_scaled)
-    predicted_class = (prediction_probs > 0.5).astype(int).flatten()  # Flatten to get the 1D array of predictions
+    predicted_class = (prediction_probs > 0.5).astype(int).flatten()
 
     st.subheader("Prediction")
     if predicted_class[0] == 1:
